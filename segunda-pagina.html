@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagem Motivacional</title>
+    <style>
+        /* Fundo da tela com a imagem */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: url('https://i.imgur.com/knNuUB2.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        /* Estilo para o conteúdo centralizado */
+        .content {
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+        }
+        /* Estilo do texto da mensagem */
+        .message {
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+        /* Estilo final da mensagem */
+        .final-message {
+            font-size: 2rem;
+            color: #FFD700;
+            margin-top: 20px;
+            display: none; /* Inicialmente oculto */
+        }
+        /* Estilo da imagem e do GIF */
+        .media-container {
+            display: none; /* Inicialmente oculto */
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+        .media-container img {
+            border-radius: 50%; /* Imagem em formato circular */
+        }
+        .photo {
+            width: 150px;
+            height: 150px;
+        }
+        .gif {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <!-- A mensagem que vai aparecer letra por letra -->
+        <div class="message" id="message"></div>
+        
+        <!-- Imagem e GIF que aparecem após a mensagem -->
+        <div class="media-container" id="mediaContainer">
+            <img src="https://i.imgur.com/55o5z07.jpg" alt="Maria Vitória" class="photo">
+            <img src="https://imagens.net.br/wp-content/uploads/2024/07/encante-se-gifs-de-ursinho-para-derreter-seu-coracao-0.gif" alt="Ursinho" class="gif">
+        </div>
+        
+        <!-- Mensagem final que aparece após a imagem e o GIF -->
+        <div class="final-message" id="finalMessage">Forças, Mavizinha! ❤️</div>
+    </div>
+
+    <script>
+        const message = "Lembre-se do quão você é especial, do quão você é esforçado e eu aqui acredito muito em você! Estou na torcida para que você saia logo dessa. Amo você!";
+        let i = 0;
+
+        function typeMessage() {
+            if (i < message.length) {
+                document.getElementById("message").innerHTML += message.charAt(i);
+                i++;
+                setTimeout(typeMessage, 50); // Delay para o efeito de digitação
+            } else {
+                // Mostrar a imagem e o GIF após a frase estar completa
+                document.getElementById("mediaContainer").style.display = "flex";
+                
+                // Exibir a mensagem final depois de um pequeno delay
+                setTimeout(() => {
+                    document.getElementById("finalMessage").style.display = "block";
+                }, 1000); // Delay de 1 segundo para mostrar a mensagem final
+            }
+        }
+
+        // Iniciar a animação de digitação assim que a página carregar
+        window.onload = function() {
+            typeMessage();
+        };
+    </script>
+</body>
+</html>

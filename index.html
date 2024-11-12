@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Quer ver uma coisa?</title>
+    <style>
+        /* Centralização e responsividade para iPhone 8 Plus */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            max-width: 320px; /* Largura aproximada do iPhone 8 Plus */
+            width: 100%;
+            margin: 0 auto;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            color: #333;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between; /* Isso vai garantir que os botões fiquem alinhados corretamente */
+            gap: 20px;
+            width: 100%;
+            position: relative;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border: none;
+            color: #fff;
+            width: 45%; /* Ajusta os botões para ocupar 45% da largura da tela */
+            max-width: 120px; /* Limita o tamanho máximo dos botões */
+        }
+        #sim {
+            background-color: #4CAF50;
+        }
+        #nao {
+            background-color: #FF6347;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>QUER VER UMA COISA?</h1>
+        <div class="buttons">
+            <button id="sim" onclick="irParaPagina()">SIM</button>
+            <button id="nao" onmouseover="moverBotao()">NÃO</button>
+        </div>
+    </div>
+    <script>
+        function moverBotao() {
+            const naoButton = document.getElementById("nao");
+            const randomX = Math.floor(Math.random() * (window.innerWidth * 0.8 - 120)); // 80% da largura da tela, evitando a sobrecarga
+            const randomY = Math.floor(Math.random() * (window.innerHeight * 0.8 - 50)); // 80% da altura da tela
+            naoButton.style.left = `${randomX}px`;
+            naoButton.style.top = `${randomY}px`;
+        }
+
+        function irParaPagina() {
+            window.location.href = "segunda-pagina.html";
+        }
+    </script>
+</body>
+</html>
